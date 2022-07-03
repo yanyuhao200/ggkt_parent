@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Data
 @ApiModel(description = "Teacher")
-@TableName("teacher")
+@TableName("teacher") // 实体类对应大的表的名字
 public class Teacher extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;

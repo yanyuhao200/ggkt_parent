@@ -33,7 +33,7 @@ public class BaseEntity implements Serializable {
 
     @ApiModelProperty(value = "逻辑删除(1:已删除，0:未删除)")
     @JsonIgnore
-    @TableLogic
+    @TableLogic // 此注解实现逻辑删除
     @TableField("is_deleted")
     private Integer isDeleted;
 
