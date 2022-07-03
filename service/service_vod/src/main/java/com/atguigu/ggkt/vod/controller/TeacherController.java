@@ -1,6 +1,7 @@
 package com.atguigu.ggkt.vod.controller;
 
 
+import com.atguigu.ggkt.result.Result;
 import com.atguigu.ggkt.vod.service.TeacherService;
 import com.atguigu.ggkt.model.vod.Teacher;
 import io.swagger.annotations.Api;
@@ -31,19 +32,28 @@ public class TeacherController {
     // http://localhost:8301/admin/vod/teacher/findAll
     @ApiOperation("查询所有讲师")
     @GetMapping("findAll")
-    public List<Teacher> findAllTeacher() {
+    /*public List<Teacher> findAllTeacher() {
+        // 调用service方法
         List<Teacher> list = teacherService.list();
         return list;
+    }*/
+    public Result findAllTeacher() {
+        // 调用service方法
+        List<Teacher> list = teacherService.list();
+        return Result.ok(list).message("查询数据成功");
     }
 
     // 2、逻辑删除讲师
     @ApiOperation("逻辑删除讲师")
     @DeleteMapping("remove/{id}")
-    public boolean removeTeacher(@ApiParam(name = "id", value = "ID", readOnly = true)
+    public Result removeTeacher(@ApiParam(name = "id", value = "ID", readOnly = true)
                                  @PathVariable Long id) {
         boolean isSuccess = teacherService.removeById(id);
-
-        return isSuccess;
+        if(isSuccess){
+            return Result.ok(null);
+        }else {
+            return Result.fail(null);
+        }
     }
 }
 
