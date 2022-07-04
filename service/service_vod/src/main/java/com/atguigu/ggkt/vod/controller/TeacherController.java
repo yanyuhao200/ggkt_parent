@@ -1,6 +1,7 @@
 package com.atguigu.ggkt.vod.controller;
 
 
+import com.atguigu.ggkt.exception.GgktException;
 import com.atguigu.ggkt.model.vod.Teacher;
 import com.atguigu.ggkt.result.Result;
 import com.atguigu.ggkt.vo.vod.TeacherQueryVo;
@@ -8,7 +9,6 @@ import com.atguigu.ggkt.vod.service.TeacherService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.sun.org.apache.regexp.internal.RE;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -44,6 +44,13 @@ public class TeacherController {
         return list;
     }*/
     public Result findAllTeacher() {
+        // 模拟异常
+
+        try {
+            int i = 10 / 0;
+        } catch (Exception e) {
+            throw new GgktException(201, "执行了自定义异常处理GgktException");
+        }
         // 调用service方法
         List<Teacher> list = teacherService.list();
         return Result.ok(list).message("查询数据成功");
@@ -174,15 +181,16 @@ public class TeacherController {
             return Result.fail(null);
         }
     }
+
     // 7、批量删除讲师
     // json数组[1,2,3]  以数组形式传递
     @ApiOperation("批量删除讲师")
     @PostMapping("removeBatch")
-    public Result removeBatch(@RequestBody List<Long> idList){
+    public Result removeBatch(@RequestBody List<Long> idList) {
         boolean isSuccess = teacherService.removeByIds(idList);
         if (isSuccess) {
             return Result.ok(null);
-        }else {
+        } else {
             return Result.fail(null);
         }
     }
