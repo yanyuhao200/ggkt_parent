@@ -35,8 +35,8 @@
         <mybatis-plus.version>3.4.1</mybatis-plus.version>
         <!--        <mysql.version>5.1.46</mysql.version>-->
         <mysql.version>8.0.23</mysql.version>
-        <!--        <swagger.version>2.9.2</swagger.version>-->
-        <swagger.version>2.7.0</swagger.version>
+        <swagger.version>2.9.2</swagger.version>
+        <!--<swagger.version>2.7.0</swagger.version>-->
         <jwt.version>0.7.0</jwt.version>
         <fastjson.version>1.2.29</fastjson.version>
         <httpclient.version>4.5.1</httpclient.version>
@@ -140,8 +140,6 @@
                 <artifactId>xxl-job-core</artifactId>
                 <version>${xxl-job.version}</version>
             </dependency>
-
-
 
             <!--swagger-->
             <dependency>
