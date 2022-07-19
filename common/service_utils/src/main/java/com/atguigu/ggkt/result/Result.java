@@ -47,7 +47,7 @@ public class Result<T> {
     // 成功的方法 有data数据
     public static <T> Result<T> ok(T data) {
         Result<T> result = new Result<>();
-        result.setCode(200);
+        result.setCode(20000);
         result.setMessage("成功");
         if (data != null) {
             result.setData(data);
@@ -58,7 +58,7 @@ public class Result<T> {
     // 失败的方法 有data数据
     public static <T> Result<T> fail(T data) {
         Result<T> result = new Result<>();
-        result.setCode(201);
+        result.setCode(20001);
         result.setMessage("失败");
         if (data != null) {
             result.setData(data);
