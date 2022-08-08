@@ -1,7 +1,6 @@
 package com.atguigu.ggkt.vod.controller;
 
 
-import com.atguigu.ggkt.exception.GgktException;
 import com.atguigu.ggkt.model.vod.Teacher;
 import com.atguigu.ggkt.result.Result;
 import com.atguigu.ggkt.vo.vod.TeacherQueryVo;
@@ -45,13 +44,12 @@ public class TeacherController {
         return list;
     }*/
     public Result findAllTeacher() {
-        // 模拟异常
-
+        /*// 模拟异常
         try {
             int i = 10 / 0;
         } catch (Exception e) {
             throw new GgktException(201, "执行了自定义异常处理GgktException");
-        }
+        }*/
         // 调用service方法
         List<Teacher> list = teacherService.list();
         return Result.ok(list).message("查询数据成功");
@@ -164,7 +162,7 @@ public class TeacherController {
 
     // 5、修改-根据id查询
     @ApiOperation("根据id查询")
-    @GetMapping("getTeacher/{id}")
+    @GetMapping("getTeacherById/{id}")
     public Result getTeacher(@PathVariable Long id) {
         Teacher teacher = teacherService.getById(id);
         return Result.ok(teacher);

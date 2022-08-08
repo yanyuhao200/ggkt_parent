@@ -13,7 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("admin/vod/user")
-@CrossOrigin // 跨域
+@CrossOrigin
 public class UserLoginController {
 
     // login
@@ -35,8 +35,6 @@ public class UserLoginController {
         // "name":"Super Admin"}}
         Map<Object, String> map = new HashMap<>();
         map.put("roles", "admin");
-        map.put("roles", "admin");
-        map.put("introduction", "I am a super administrator");
         map.put("avatar", "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
         map.put("name", "Super Admin");
         return Result.ok(map);

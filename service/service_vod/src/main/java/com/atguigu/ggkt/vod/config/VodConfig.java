@@ -1,4 +1,4 @@
-package com.atguigu.ggkt.vod.controller.config;
+package com.atguigu.ggkt.vod.config;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
